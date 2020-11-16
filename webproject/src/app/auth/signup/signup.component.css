@@ -1,64 +1,77 @@
-mat-form-field,
-text-area{
-    width:100%;
-  }
-
-  /*form .normal-form{
 
 
-}*/
+.box {
+  padding: 30px 10px;
 
-mat-grid-list{
+  background: white;
   border-radius: 10px;
-  background-color: white;
-  margin: 50px 20px;
-  }
+  margin-bottom: 30px;
 
-  .control-cont{
-    width: 100%;
-    padding: 5%;
-  }
-
-  mat-form-field,
-  text-area{
-      width:100%;
-    }
-
-  h2{
-    text-align: center;
-    color:white;
-
-  }
-  .container{
-
-    height: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url("/assets/b.jpg") no-repeat center;
-    background-size: cover;
-    min-height: 300px;
-
-  }
-
-  .example-spacer{
-    flex: 1 1 auto;
-  }
-
-  mat-card{
-    position: relative;
-    float: left;
-    padding: 30px 30px;
-    width: 100%;
-    background: #53D2DC;
-    border-radius: 10px;
-    transform: scale(1);
-    -webkit-transform: scale(1);
-    -ms-transform: scale(1);
-    z-index: 5;
-    max-width: 330px;
-    margin-top: 20px;
-  }
-
-  mat-form-field{
-    margin: 0px;
-  }
+}
 
 
+.register-wrapper{
+  background-image: linear-gradient(180deg, #0f0c29, #302b63, #24243e);
+  height: 100%;
+  padding-bottom: 50px;
+
+}
+ .registerform {
+  min-width: 100%;
+ max-width: 400px;
+  width: 100%;
+  height: 100%;
+}
+
+.register-wrapper .input-field{
+  width: 100%;
+}
+
+.register-wrapper mat-card-header {
+  text-align: center;
+  display: block;
+  font-weight: 700;
+  color: black;
+  padding: 20px 0px;
+  margin-bottom: 20px;
+}
+
+.register-wrapper mat-card-header mat-card-title {
+  font-size: 30px;
+  margin: 0;
+}
+
+.register-wrapper .mat-card {
+  padding: 20px 30px 30px;
+}
+
+.register-wrapper .mat-stroked-button {
+  border: 1px solid currentColor;
+  line-height: 54px;
+  background: #fff7fa;
+}
+
+mat-form-field{
+  margin: 5px 0px;
+}
+
+.btn-block{
+  margin-top: 10px;
+
+  width: 100%;
+}
+
+
+mat-card-header{
+background-color:   white;
+}
+
+
+.sign {
+  padding-top: 30px;
+  text-align: center;
+}
+.sign a {
+  color: #3196e2;
+  text-decoration: none;
+}

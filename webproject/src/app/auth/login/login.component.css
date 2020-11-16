@@ -1,63 +1,36 @@
 
 
-
 .box {
   padding: 30px 10px;
 
+  background: white;
   border-radius: 10px;
+  margin-bottom: 30px;
 
 }
-
-/*.box.back {
-  transform: scale(.95);
-  -webkit-transform: scale(.95);
-  -ms-transform: scale(.95);
-  top: -20px;
-  opacity: .8;
-  z-index: -1;
+h1{
+  color: #fff7fa;
 }
 
-.box:before {
-  content: "";
+.register-wrapper{
+  background-image: linear-gradient(180deg, #0f0c29, #302b63, #24243e);
+  height: 100%;
+  padding-bottom: 50px;
+
+}
+ .registerform {
+  min-width: 100%;
+ max-width: 400px;
   width: 100%;
-  height: 30px;
-  border-radius: 10px;
-  position: absolute;
-  top: -10px;
-  background: rgba(255, 255, 255, .6);
-  left: 0;
-  transform: scale(.95);
-  -webkit-transform: scale(.95);
-  -ms-transform: scale(.95);
-  z-index: -1;
-}
-.login-wrapper .mat-form-field-appearance-legacy .mat-form-field-infix {
-  padding: 0.8375em 0;
+  height: 100%;
 }
 
-*/
-.login-wrapper {
-  height: 100vh;
-  background-image: linear-gradient(180deg, #155799, #159957 );
-
-}
-
-
-.loginform {
-  width: 100%;
-  max-width: 330px;
-  padding: 15px;
-  margin: auto;
-}
-
-.login-wrapper .input-field,
-.login-wrapper .btn-block {
+.register-wrapper .input-field{
   width: 100%;
 }
 
-.login-wrapper mat-card-header {
+.register-wrapper mat-card-header {
   text-align: center;
-  width: 100%;
   display: block;
   font-weight: 700;
   color: black;
@@ -65,20 +38,36 @@
   margin-bottom: 20px;
 }
 
-.login-wrapper mat-card-header mat-card-title {
+.register-wrapper mat-card-header mat-card-title {
   font-size: 30px;
   margin: 0;
 }
 
-.login-wrapper .mat-card {
-  padding: 30px 40px 30px;
+.register-wrapper .mat-card {
+  padding: 20px 30px 30px;
 }
 
-.login-wrapper .mat-stroked-button {
+.register-wrapper .mat-stroked-button {
   border: 1px solid currentColor;
   line-height: 54px;
-  background: #a16179;
+  background: #fff7fa;
 }
+
+mat-form-field{
+  margin: 5px 0px;
+}
+
+.btn-block{
+  margin-top: 10px;
+
+  width: 100%;
+}
+
+
+mat-card-header{
+background-color:   white;
+}
+
 
 .sign {
   padding-top: 30px;
@@ -86,12 +75,5 @@
 }
 .sign a {
   color: #3196e2;
+  text-decoration: none;
 }
-
-mat-form-field{
-  margin: 5px 0px;
-}
-
-mat-card-header{
-  background-color:   white;
-  }

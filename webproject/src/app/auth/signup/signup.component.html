@@ -1,24 +1,24 @@
-
-
-<div class=" register-wrapper" fxLayout.md="column"
-fxLayoutAlign="center center"
-fxLayoutGap="30px"
-fxLayoutGap.xs="0" >
+<div class=" register-wrapper" fxLayout.md="column" fxLayoutAlign="center center" fxLayoutGap="30px" fxLayoutGap.xs="0">
 
   <mat-card class="box">
     <mat-card-header>
       <mat-card-title>Sign Up</mat-card-title>
     </mat-card-header>
 
-    <form class="form"  class="registerform"  (submit)= "onSignUp(signUpForm)" #signUpForm="ngForm" >
+    <form class="form" class="registerform" (submit)="onSignUp(signUpForm)" #signUpForm="ngForm">
       <mat-card-content>
         <mat-form-field class="input-field">
-          <input matInput type ="email" name="email" #emailInput="ngModel" ngModel required placeholder="Email">
-   <mat-error *ngIf= "emailInput.invalid"> Please enter valid email</mat-error>
+          <input matInput type="fullname" name="fullname" #fullnameInput="ngModel" ngModel required placeholder="Fullname">
+          <mat-error *ngIf="fullnameInput.invalid"> Please enter valid fullname</mat-error>
         </mat-form-field>
         <mat-form-field class="input-field">
-          <input matInput type ="password" name="password"  placeholder="Password" ngModel #passwordInput ="ngModel" required>
-          <mat-error *ngIf= "passwordInput.invalid"> Please enter valid password</mat-error>
+          <input matInput type="email" name="email" #emailInput="ngModel" ngModel required placeholder="Email">
+          <mat-error *ngIf="emailInput.invalid"> Please enter valid email</mat-error>
+        </mat-form-field>
+        <mat-form-field class="input-field">
+          <input matInput type="password" name="password" placeholder="Password" ngModel #passwordInput="ngModel"
+            required>
+          <mat-error *ngIf="passwordInput.invalid"> Please enter valid password</mat-error>
         </mat-form-field>
       </mat-card-content>
 
@@ -30,5 +30,3 @@ fxLayoutGap.xs="0" >
   </mat-card>
 
 </div>
-
-

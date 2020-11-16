@@ -32,7 +32,7 @@ export class AuthService{
       const token =response.token;
       this.token = token;
       this.authStatusListener.next(true);
-      this.router.navigate(['/']);
+      this.router.navigate(['dashboard']);
     });
   }
   logout(){
