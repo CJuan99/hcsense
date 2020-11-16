@@ -1,0 +1,37 @@
+.example-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.mat-sidenav-container {
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  position: fixed;
+}
+.mat-sidenav-container .mat-sidenav {
+  width: 15vw;
+  min-width: 200px !important;
+}
+.mat-sidenav-container .mat-sidenav .content {
+  padding: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

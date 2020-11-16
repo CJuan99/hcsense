@@ -1,0 +1,64 @@
+mat-form-field,
+text-area{
+    width:100%;
+  }
+
+  /*form .normal-form{
+
+
+}*/
+
+mat-grid-list{
+  border-radius: 10px;
+  background-color: white;
+  margin: 50px 20px;
+  }
+
+  .control-cont{
+    width: 100%;
+    padding: 5%;
+  }
+
+  mat-form-field,
+  text-area{
+      width:100%;
+    }
+
+  h2{
+    text-align: center;
+    color:white;
+
+  }
+  .container{
+
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url("/assets/b.jpg") no-repeat center;
+    background-size: cover;
+    min-height: 300px;
+
+  }
+
+  .example-spacer{
+    flex: 1 1 auto;
+  }
+
+  mat-card{
+    position: relative;
+    float: left;
+    padding: 30px 30px;
+    width: 100%;
+    background: #53D2DC;
+    border-radius: 10px;
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    z-index: 5;
+    max-width: 330px;
+    margin-top: 20px;
+  }
+
+  mat-form-field{
+    margin: 0px;
+  }
+
+
