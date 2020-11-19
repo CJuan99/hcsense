@@ -22,6 +22,8 @@ export class AuthService{
     this.http.post('http://localhost:3000/api/user/signup', authData)
     .subscribe(response =>{
       console.log(response);
+      alert("Register account successfully ");
+      this.router.navigate(['login']);
     });
   }
   login(email: string, password:string){
