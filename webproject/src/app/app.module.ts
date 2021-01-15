@@ -33,6 +33,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTooltipModule } from '@angular/material/tooltip'
+import { MqttModule, IMqttServiceOptions } from "ngx-mqtt"; //MQTT
 
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -43,13 +44,23 @@ import { SignupComponent } from './auth/signup/signup.component';
 import {AuthInterceptor} from './auth/auth-interceptor';
 import { HeaderComponent } from './header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import {MQTTDashboardComponent} from './mqtt_dashboard/mqtt_dashboard.component';
+
+//MQTT
+export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
+  hostname: 'broker.hivemq.com',
+  port: 8000,
+  path: '/mqtt'
+};
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
     HeaderComponent,
-    DashboardComponent
+    DashboardComponent,
+    MQTTDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -90,7 +101,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatDatepickerModule,
     MatTooltipModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MqttModule.forRoot(MQTT_SERVICE_OPTIONS) //MQTT
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true}],
   bootstrap: [AppComponent]
