@@ -12,6 +12,11 @@
         </a>
       </li>
       <li *ngIf= "!userIsAuthenticated">
+        <a mat-button routerLink="/mqtt" routerLinkActive="mat-light-blue">
+         MQTT
+        </a>
+      </li>
+      <li *ngIf= "!userIsAuthenticated">
         <a mat-button routerLink="/signup" >
           Sign Up
         </a>
