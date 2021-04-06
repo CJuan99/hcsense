@@ -19,6 +19,8 @@ BH1750 lightMeter(0x23);
 #define dataPin 2
 #define DHT_TYPE DHT22
 DHT dht(dataPin, DHT_TYPE);
+#undef  MQTT_MAX_PACKET_SIZE // un-define max packet size
+//#define MQTT_MAX_PACKET_SIZE 500  // fix for MQTT client dropping messages over 128B
 
 int red_light_pin = 12;
 int green_light_pin = 13;
@@ -27,6 +29,7 @@ int buzzerPin = 14;
 
 //long currentTime, lastTime, stopDuration = 0;
 String trigger;
+String trigger2;
 boolean nodeStatus = false;
 String check="";
 
@@ -78,6 +81,7 @@ String humi_fixed_timestamp;
 float humi_highest=0;
 boolean humi_status = false;
 String humi_latest_compliance;
+
 // --END--
 
 void RGB_color(int red_light_value, int green_light_value, int blue_light_value) {
@@ -324,7 +328,7 @@ void loop() {
     } else {
       //RGB_color(0,0,255);
       client.publish("HCSense/ppm", String(ppm).c_str());
-      client.publish("HC-Sense/lux", String(lux).c_str());
+      client.publish("HCSense/lux", String(lux).c_str());
       client.publish("HCSense/temp", String(temperature).c_str());
       client.publish("HCSense/humi", String(humidity).c_str());
 
@@ -443,10 +447,12 @@ void loop() {
         }
         if(nodeStatus == false){
           trigger = "\n" "Current Co2 level: " + String(ppm)+ " ppm" + "\n" "Compliance value: " + String(co2_compliance)+ " ppm" + 
-                    "\n\n" "Current Light Intensity level: " + String(lux) + " lux" + "\n" "Compliance value: " + String(light_compliance)+" lux" +
-                    "\n\n" "Current Temperature level: " + String(temperature) + " celcius" + "\n" "Compliance value: " + String(temp_compliance)+" celcius" +
+                    "\n\n" "Current Light Intensity level: " + String(lux) + " lux" + "\n" "Compliance value: " + String(light_compliance)+" lux";
+                    
+           trigger2= "\n\n" "Current Temperature level: " + String(temperature) + " celcius" + "\n" "Compliance value: " + String(temp_compliance)+" celcius" +
                     "\n\n" "Current Humidity level: " + String(humidity) + " rh" + "\n" "Compliance value: " + String(humi_compliance)+" rh";
-          client.publish("HCSense/emailAlert", String(trigger).c_str());
+          client.publish("HCSense/email_four", String(trigger).c_str());
+          client.publish("HCSense/email_four2", String(trigger2).c_str());
           nodeStatus = true; 
           Serial.print("ppm-lux-temp-humi");
         }
@@ -708,10 +714,21 @@ void loop() {
         if(check != ""){
           check = "";
           nodeStatus = false;
-          Serial.print("all conditions met!");
-          trigger = "\n" "Current Co2 level: " + String(ppm)+ " ppm" + "\n" "Compliance value: " + String(co2_compliance)+ " ppm" + "\n\n" "Current Light Intensity level: " + String(lux) + " lux" + "\n" "Compliance value: " + String(light_compliance)+" lux" + "\n\n" "Current Temperature level: " + String(temperature) + " celcius" + "\n" "Compliance value: " + String(temp_compliance)+" celcius" +"\n\n"  "Current Humidity level: " + String(humidity) + " rh" + "\n" "Compliance value: " + String(humi_compliance)+" rh";
-          client.publish("HCSense/emailNormal", String(trigger).c_str());
+          
+         trigger = "\n" "Current Co2 level: " + String(ppm)+ " ppm" + "\n" "Compliance value: " + String(co2_compliance)+ " ppm" + 
+                    "\n\n" "Current Light Intensity level: " + String(lux) + " lux" + "\n" "Compliance value: " + String(light_compliance)+" lux";
+                   
+
+          trigger2 =  "\n\n" "Current Temperature level: " + String(temperature) + " celcius" + "\n" "Compliance value: " + String(temp_compliance)+" celcius" +
+                    "\n\n" "Current Humidity level: " + String(humidity) + " rh" + "\n" "Compliance value: " + String(humi_compliance)+" rh";
+                    
+         // trigger = "\n" "Current Co2 level: " + String(ppm)+ " ppm" + "\n" "Compliance value: " + String(co2_compliance)+ " ppm" + "\n\n" "Current Light Intensity level: " + String(lux) + " lux" + "\n" "Compliance value: " + String(light_compliance)+" lux" + "\n\n" "Current Temperature level: " + String(temperature) + " celcius" + "\n" "Compliance value: " + String(temp_compliance)+" celcius" +"\n\n"  "Current Humidity level: " + String(humidity) + " rh" + "\n" "Compliance value: " + String(humi_compliance)+" rh";
+          client.publish("HCSense/normal", String(trigger).c_str());
+          client.publish("HCSense/normal_two", String(trigger2).c_str());
+          //String(trigger).c_str()
+           Serial.print("all conditions met!");
         }
+         Serial.print("1234567890");
       }
 
 
